@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Portfolio Website</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <!-- <link href="{{ url_for('static', filename = 'assets/img/favicon.png') }}" rel="icon"> -->
+  <link href="{{ url_for('static', filename = 'assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link
+    href="{{ url_for('static', filename = 'https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i') }}"
+    rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{{ url_for('static', filename = 'assets/vendor/aos/aos.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename = 'assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename = 'assets/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename = 'assets/vendor/boxicons/css/boxicons.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename = 'assets/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename = 'assets/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{{ url_for('static', filename = 'assets/css/style.css') }}" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: iPortfolio
+  * Template URL: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/
+  * Updated: Mar 17 2024 with Bootstrap v5.3.3
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+
+  <!-- ======= Mobile nav toggle button ======= -->
+  <i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
+
+  <!-- ======= Header ======= -->
+  <header id="header">
+    <div class="d-flex flex-column">
+
+      <div class="profile">
+        <img src="{{ url_for('static', filename = 'assets/img/profile-img.jpg') }}" alt=""
+          class="img-fluid rounded-circle">
+        <h1 class="text-light"><a href="index.html">{{ user_data[0][2] }}</a></h1>
+        <div class="social-links mt-3 text-center">
+          <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+          <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+          <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+          <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+          <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+        </div>
+      </div>
+
+      <nav id="navbar" class="nav-menu navbar">
+        <ul>
+          <li><a href="#hero" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Home</span></a></li>
+          <li><a href="#skills" class="nav-link scrollto"><i class="bx bx-user"></i> <span>Skills</span></a></li>
+          <li><a href="#resume" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>Resume</span></a></li>
+          <li><a href="#portfolio" class="nav-link scrollto"><i class="bx bx-briefcase"></i>
+              <span>Experience</span></a></li>
+          <li><a href="#services" class="nav-link scrollto"><i class="bx bx-book"></i> <span>Education</span></a></li>
+          <li><a href="#projects" class="nav-link scrollto"><i class="bx bx-briefcase"></i> <span>Projects</span></a>
+          </li>
+          <li><a href="#supervision" class="nav-link scrollto"><i class="bx bx-user-check"></i> <span>Supervision</span></a>
+          </li>
+          <li><a href="#publications" class="nav-link scrollto"><i class="bx bx-news"></i>
+              <span>Publications</span></a></li>
+          <li><a href="#contact" class="nav-link scrollto"><i class="bx bx-envelope"></i> <span>Contact</span></a></li>
+        </ul>
+      </nav><!-- .nav-menu -->
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
+    <div class="hero-container" data-aos="fade-in">
+      <h1>{{ user_data[0][2] }}</h1>
+      <!-- <ul>
+          {% for user in user_data %}
+              <li>{{ user[0] }}</li>
+          {% endfor %}
+      </ul> -->
+      <p>I'm <span class="typed" data-typed-items="{{ user_data[0][5] }}"></span></p>
+    </div>
+  </section><!-- End Hero -->
+
+  <main id="main">
+
+    <!-- ======= skills Section ======= -->
+    <section id="about" class="about">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Skills</h2>
+          <!-- ======= Skills Section ======= -->
+          <section id="skills" class="skills section-bg">
+            <div class="container">
+              <div class="section-title">
+                <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint
+                  consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia
+                  fugiat sit in iste officiis commodi quidem hic quas.</p>
+              </div>
+
+              <div class="row skills-content">
+                {% for skill in skills_data %}
+                <div class="col-lg-6" data-aos="fade-up">
+
+                  <div class="progress">
+                    <span class="skill">{{ skill[1] }} <i class="val">{{ skill[2] }}%</i></span>
+                    <div class="progress-bar-wrap">
+                      <div class="progress-bar" role="progressbar" aria-valuenow="{{ skill[2] }}" aria-valuemin="0"
+                        aria-valuemax="100"></div>
+                    </div>
+                  </div>
+                </div>
+                {% endfor %}
+              </div>
+            </div>
+          </section>
+    </section>
+    <!-- End Skills Section -->
+
+    <!-- ======= Resume Section ======= -->
+    <section id="resume" class="resume">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Resume</h2>
+          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint
+            consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit
+            in iste officiis commodi quidem hic quas.</p>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-6" data-aos="fade-up">
+            <h3 class="resume-title">Sumary</h3>
+            <div class="resume-item pb-0">
+              <h4>{{ prsnl_data[0][0] }}</h4>
+              <p><em>{{ prsnl_data[0][1] }}</em></p>
+              <ul>
+                <li>{{ prsnl_data[0][2] }}</li>
+                <li>{{ prsnl_data[0][4] }}</li>
+                <li>{{ prsnl_data[0][3] }}</li>
+              </ul>
+            </div>
+
+            <h3 class="resume-title">Education</h3>
+            {% for edu in res_edu_data %}
+            <div class="resume-item">
+              <h4>{{ edu[1] }}</h4>
+              <h5>{{ edu[4] }} - {{ edu[5] }}</h5>
+              <p><em>{{ edu[2] }}</em></p>
+              <p>{{ edu[3] }}</p>
+            </div>
+            {% endfor %}
+
+          </div>
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+            <h3 class="resume-title">FYP - Final Year Project</h3>
+            {% for fyp in fyp_data %}
+
+            <div class="resume-item">
+              <h4>{{ fyp[1] }}</h4>
+              <ul>
+                <li>{{ fyp[2] }}</li>
+                <li><b>{{ fyp[6] }}</b>{{ fyp[3] }}</li>
+                
+                <li><b>{{ fyp[5] }}</b>{{ fyp[4] }}</li>
+              </ul>
+            </div>
+            {% endfor %}
+
+            
+            <div class="resume-item">
+              <h4>projects</h4>
+              {% for resp in res_project_data %}
+              <p><em>{{ resp[3] }}</em></p>
+              <ul>
+                <li><b>{{ resp[1] }}</b>
+                  {{ resp[2] }}  </li>
+              </ul>
+              {% endfor %}
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </section><!-- End Resume Section -->
+
+    <!-- ======= experience Section ======= -->
+    <section id="portfolio" class="portfolio section-bg">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Experience</h2>
+
+          <section class="resume-section" id="experience">
+            <div class="resume-section-content">
+              {% for exp in exp_data %}
+              <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                <div class="flex-grow-1">
+                  <h3 class="mb-0"><b>{{ exp[1] }}</b></h3>
+                  <div class="subheading mb-3"><i>{{ exp[2] }}</i></div>
+                  <p>{{ exp[3] }}</p>
+                </div>
+                <div class="flex-shrink-0"><span class="text-primary">{{ exp[4] }} - {{ exp[5] }}</span></div>
+              </div>
+              {% endfor %}
+          </section>
+        </div>
+    </section><!-- End experience Section -->
+
+    <!-- ================Education section ============== -->
+    <section id="services" class="services">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Education</h2>
+
+          <section class="resume-section" id="education">
+            <div class="resume-section-content">
+              {% for edu in edu_data %}
+
+              <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                <div class="flex-grow-1">
+                  <h3 class="mb-0">{{ edu[1] }}</h3>
+                  <div class="subheading mb-3">{{ edu[2] }}</div>
+                  <div>{{ edu[3] }}</div>
+                  <p>{{ edu[4] }}</p>
+                </div>
+                <div class="flex-shrink-0"><span class="text-primary"> {{ edu[5] }} - {{ edu[6] }}</span></div>
+              </div>
+            
+              {% endfor %}
+        </div>
+    </section>
+  </section>
+    
+    <!-- ===========End Education Section=========== -->
+
+    <!-- ======= Projects Section ======= -->
+    <section id="projects" class="services">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Projects</h2>
+          <p>I created some mini open source python projects to showcase my ability to make attractive projects on my
+            own on the basis of self learning.</p>
+        </div>
+
+        <div class="row">
+          {% for pro in project_data %}
+          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up">
+            <div class="icon"><i class="{{ pro[3] }}"></i></div>
+            <h4 class="title"><a href="">{{ pro[1] }}</a></h4>
+            <p class="description">{{ pro[2] }}</p>
+          </div>
+          {% endfor %}
+          
+      </div>
+    </section><!-- End Projects Section -->
+
+    <!-- ==============Supervision section====== -->
+    <section id="supervision" class="services">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Supervision</h2>
+
+          <section class="resume-section" id="experience">
+            <div class="resume-section-content">
+              {% for sup in sup_data %}
+
+              <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                <div class="flex-grow-1">
+                  <h3 class="mb-0"><b>{{ sup[1] }}</b></h3>
+                  <p>{{ sup[2] }}</p>
+                </div>
+              </div>
+              {% endfor %}
+             
+          </section>
+        </div>
+    </section>
+    <!-- =======end supervision section======== -->
+
+    <!-- ======= Publications Section ======= -->
+    <section id="publications" class="testimonials section-bg">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Publications</h2>
+          <p>The Publications section showcases my written contributions, including articles, research papers, and other
+            publications. It provides a comprehensive overview of my work, highlighting my expertise and contributions
+            to various topics within my field.</p>
+        </div>
+
+        <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
+          <div class="swiper-wrapper">
+            {% for pub in pub_data %}
+
+            <div class="swiper-slide">
+              <div class="testimonial-item" data-aos="fade-up">
+                <p>
+                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                  {{ pub[3] }}
+                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                </p>
+                <img src="{{ pub[4] }}"
+                  class="testimonial-img" alt="">
+                <h3>{{ pub[1] }}</h3>
+                <h4>{{ pub[2] }}</h4>
+              </div>
+            </div>
+            {% endfor %}<!-- End testimonial item -->
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+
+      </div>
+    </section><!-- End Testimonials Section -->
+
+
+  </main><!-- End #main -->
+
+
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="{{ url_for('static', filename = 'assets/vendor/purecounter/purecounter_vanilla.js') }}"></script>
+  <script src="{{ url_for('static', filename = 'assets/vendor/aos/aos.js') }}"></script>
+  <script src="{{ url_for('static', filename = 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+  <script src="{{ url_for('static', filename = 'assets/vendor/glightbox/js/glightbox.min.js') }}"></script>
+  <script src="{{ url_for('static', filename = 'assets/vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
+  <script src="{{ url_for('static', filename = 'assets/vendor/swiper/swiper-bundle.min.js') }}"></script>
+  <script src="{{ url_for('static', filename = 'assets/vendor/typed.js/typed.umd.js') }}"></script>
+  <script src="{{ url_for('static', filename = 'assets/vendor/waypoints/noframework.waypoints.js') }}"></script>
+  <script src="{{ url_for('static', filename = 'assets/vendor/php-email-form/validate.js') }}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="{{ url_for('static', filename = 'assets/js/main.js') }}"></script>
+
+</body>
+
+</html>
